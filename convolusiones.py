@@ -3,20 +3,10 @@ import cv2
 import argparse
 import matplotlib.pyplot as plt
 
-# Función que multiplica la matriz de image con la de kernel y devuelve la suma de esta
-def conv_helper(fragment, kernel):
-    f_row, f_col = fragment.shape
-    k_row, k_col = kernel.shape
-    result = 0.0
-    for row in range(f_row):
-        for col in range(f_col):
-            result += fragment[row,col] *  kernel[row,col]
-    return result
-
 # Función de convolución sin padding que devuelve la matriz resultante del mismo tamaño de la matriz image
 def convolution(image, kernel):
 
-    # Analiza la imágen para que en caso de que tenga color se convierte a escala de grises
+    # Analiza la imágen para que en caso de que tenga color se convierte a escala de grises, de 3 dimesiones a 2
     if len(image.shape) == 3:
         print("Found 3 Channels : {}".format(image.shape))
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -38,16 +28,26 @@ def convolution(image, kernel):
 
     output = np.zeros(image.shape) # Matriz vacía del tamaño de la imágen para guardar el resultado
 
+    pad_height = int((kernel_row - 1) / 2)
+    pad_width = int((kernel_col - 1) / 2)
+
+    padded_image = np.zeros((image_row + (2 * pad_height), image_col + (2 * pad_width)))
+    padded_image[pad_height:padded_image.shape[0] - pad_height, pad_width:padded_image.shape[1] - pad_width] = image
+
+    print("Padded image:")
+    print(padded_image)
+
+    # Mostrar el plot de la imágen con padding
+    plt.imshow(padded_image, cmap='gray')
+    plt.title("Padded Image of {}X{}".format(image_row, image_col))
+    plt.show()
+
+    #  Multiplica la matriz de image con la de kernel y devuelve la suma de esta
     for row in range(image_row):
         for col in range(image_col):
-                output[row, col] = conv_helper(
-                                    image[row:row + kernel_row, 
-                                    col:col + kernel_col],kernel)
+                output[row, col] = np.sum(kernel * padded_image[row:row + kernel_row, col:col + kernel_col])
     
-    # Mostrar el plot de la imágen en escala de grises
-    plt.imshow(image, cmap='gray')
-    plt.title("Image of {}X{}".format(image_row, image_col))
-    plt.show()
+    print("Output Image size : {}".format(output.shape))
 
     # Mostrar el plot del resultado con filtro
     plt.imshow(output, cmap='gray')
