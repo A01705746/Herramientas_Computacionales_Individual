@@ -16,6 +16,7 @@ def conv_helper(fragment, kernel):
 # Función de convolución sin padding que devuelve la matriz resultante del mismo tamaño de la matriz image
 def convolution(image, kernel):
 
+    # Analiza la imágen para que en caso de que tenga color se convierte a escala de grises
     if len(image.shape) == 3:
         print("Found 3 Channels : {}".format(image.shape))
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -25,9 +26,8 @@ def convolution(image, kernel):
 
     print("Kernel Shape : {}".format(kernel.shape))
 
-    # Impresión de matriz image
-    print('Kernel')
     # Impresión de filtro kernel
+    print('Kernel')
     for row in kernel:
             for col in row:
                 print(col ,end=' ')
@@ -43,13 +43,15 @@ def convolution(image, kernel):
                 output[row, col] = conv_helper(
                                     image[row:row + kernel_row, 
                                     col:col + kernel_col],kernel)
-    # Mostrar el plot
+    
+    # Mostrar el plot de la imágen en escala de grises
     plt.imshow(image, cmap='gray')
     plt.title("Image of {}X{}".format(image_row, image_col))
     plt.show()
 
+    # Mostrar el plot del resultado con filtro
     plt.imshow(output, cmap='gray')
-    plt.title("Output Image using {}X{} Kernel".format(kernel_row, kernel_col))
+    plt.title("Output Image using {}X{} Kernel Sobel".format(kernel_row, kernel_col))
     plt.show()
 
     return output
@@ -61,17 +63,23 @@ if __name__ == '__main__':
                         [-2,0,2],
                         [-1,0,1]])
 
-    # obtiene la imagen de la linea de comando "python convolusiones.py -i Hatsune3.png"
+    # Para obtener la imágen se corre el programa con la siguiente línea de comando:
+    # "python convolusiones.py -i Hatsune3.png"
+    # la imágen tiene que estar en la misma carpetaS
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--image", required=True, help="Path of image")
     args = vars(ap.parse_args())
 
-    # cambia la imagen a formato numerico, matriz de 3 dimensiones rgb
+    # Convierte la imagen a una matriz de 3 dimensiones rgb
     image = cv2.imread(args["image"])
+    
+    # Cambia la imágen a RGB para que conserve el color
+    RGB_img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-    plt.imshow(image, cmap='gray')
+    # Muestra la imagen original por un plot
+    plt.imshow(RGB_img, cmap='gray')
     plt.title("Original Image")
     plt.show()
 
-    # Se usa el print para ver la matriz resultante
+    # Se llama la función convolution
     convolution(image, filter)
