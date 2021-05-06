@@ -1,9 +1,10 @@
+# Importación de librerías
 import numpy as np
 import cv2
 import argparse
 import matplotlib.pyplot as plt
 
-# Función de convolución sin padding que devuelve la matriz resultante del mismo tamaño de la matriz image
+# Función de convolución con padding
 def convolution(image, kernel):
 
     # Analiza la imágen para que en caso de que tenga color se convierte a escala de grises, de 3 dimesiones a 2
@@ -14,6 +15,7 @@ def convolution(image, kernel):
     else:
         print("Image Shape : {}".format(image.shape))
 
+    # Tamaño del filtro
     print("Kernel Shape : {}".format(kernel.shape))
 
     # Impresión de filtro kernel
@@ -28,10 +30,14 @@ def convolution(image, kernel):
 
     output = np.zeros(image.shape) # Matriz vacía del tamaño de la imágen para guardar el resultado
 
+    # Altura y ancho del padding en base al filtro => (filas o columnas - 1) / 2
     pad_height = int((kernel_row - 1) / 2)
     pad_width = int((kernel_col - 1) / 2)
 
+    # Matriz vacía del tamaño de la imágen con padding
     padded_image = np.zeros((image_row + (2 * pad_height), image_col + (2 * pad_width)))
+
+    # Matriz de la imágen con padding
     padded_image[pad_height:padded_image.shape[0] - pad_height, pad_width:padded_image.shape[1] - pad_width] = image
 
     print("Padded image:")
