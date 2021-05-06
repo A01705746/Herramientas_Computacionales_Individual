@@ -30,6 +30,9 @@ def convolution(image, kernel):
                 print(col ,end=' ')
             print(end='\n')
 
+    print('\n')
+    print('Convolución válida')
+
     image_row, image_col = image.shape # obtiene tupla con las medidas de alto y ancho de la imagen
     kernel_row, kernel_col = kernel.shape # obtiene tupla con las medidas de alto y ancho el filtro
 
@@ -57,9 +60,9 @@ if __name__ == '__main__':
                         [1,7,6,5,4,3]])
 
     # Matriz de filtro
-    filter = np.array([ [1,1,1],
-                        [0,0,0],
-                        [2,10,3]])
+    filter = np.array([ [-1,0,1],
+                        [-2,0,2],
+                        [-1,0,1]])
     
     # Se usa el print para ver la matriz resultante
     print(convolution(image, filter))
