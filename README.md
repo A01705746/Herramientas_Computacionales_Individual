@@ -1,6 +1,6 @@
 # Herramientas_Computacionales_Individual
 
-Dentro de este repositorio de equipo se encuentra un programa de procesamiento de imagenes hecho en Python, por el que mediante el uso de matrices se le aplicarán disitnos filtros para manipular una imágen y analizar su comportamiento.
+Dentro de este repositorio se encuentra el trabajo individual de la Semana Tec - Herramientas computacionales: el arte de la programación, con un programa de procesamiento de imagenes hecho en Python, donde se le aplica un filtro de prueba mediante matrices para analizar su comportamiento.
 
 ## Comenzando 🚀
 
@@ -33,13 +33,13 @@ pip install matplotlib.pyplot
 _El programa se corre desde consola con la siguiente línea de código:_
 
 ```
-python convolusiones.py -i imagen.png (imagen.extenxión)
+python convolusiones.py -i imagen.png (imagen.extensión)
 ```
 
 ## Consideraciones  :pencil2:
 
 _- Las imagenes deben estar en la misma carpeta que los programas del proyecto en caso de querer agregar más_ <br>
-_- Al momento de poner la imagen en el programa debe estar escrita con extenxión_
+_- Al momento de poner la imagen en el programa debe estar escrita con extensión_
 
 ## Construido con 🛠️
 
@@ -53,7 +53,7 @@ _- Al momento de poner la imagen en el programa debe estar escrita con extenxió
 
 ## Versionado 📌
 
-Se usó [Git](https://git-scm.com/) para el versionado. Dentro de los commits se pueden ver las modificaciones de los participantes.
+Se usó [Git](https://git-scm.com/) para el versionado. En los commits se encuentran los cambios entre cada versión.
 
 ## Autores ✒️
 
@@ -64,7 +64,7 @@ _Profesor_
 
 ## Reflexión 🎁
 
-Con esta semana tec se buscó fomentar el trabajo en equipo para implementar el manejo de versiones desde un repositorio remoto a través de git. Esto para lograr un flujo de trabajo más eficiente y productivo en futuros proyectos, con mayor organización y distribución de actividades para lograr buenas prácticas de codificación, siguiendo los estándares internacionales y normas adecuadas. Además de entender cómo se comportan las imágenes en la computadora y saber manipularlas por medio de filtros y matrices.
+A través de este repositorio pude comprender los conceptos básicos de las convolusiones que posteriormente apliqué en el proyecto de equipo y reforcé el manjeo de git que previamente había puesto en práctica, solucionando dudas previas y usando nuevas funcionalidades. Además, pude explorar otra aplicación de la programación con el manejo de imágenes a través de un lenguaje felixble como lo es Python, el cual aprendí a manejarlo desde consola y probé en un editor de texto distinto donde tengo más control.
 
 
 ---
