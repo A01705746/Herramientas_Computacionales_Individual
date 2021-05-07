@@ -8,7 +8,8 @@ Para correr el programa es necesario lo siguiente:
 
 ### Pre-requisitos 📋
 
-_Tener la versión 3.9 o superior de Python_
+_Tener la versión 3.9 o superior de Python_<br>
+_Tener Git instalado en caso de querer clonar el repositorio_
 
 ### Instalación 🔧
 
@@ -29,10 +30,10 @@ pip install matplotlib.pyplot
 
 ## Corrida 📦
 
-_Dependiendo de donde se corra el programa se utiliza el botón run o desde consola:_
+_El programa se corre desde consola con la siguiente línea de código:_
 
 ```
-python main.py
+python convolusiones.py -i imagen.png (imagen.extenxión)
 ```
 
 ## Consideraciones  :pencil2:
@@ -56,14 +57,10 @@ Se usó [Git](https://git-scm.com/) para el versionado. Dentro de los commits se
 
 ## Autores ✒️
 
-* **David Guzmán Leyva** - *A01706417* - *Participante*
-* **Enrique Santos Fraire** - *A01705746* - *Líder*
-* **Jesús Uriel Sánchez de la Vega** - *A01706515* - *Supervisor*
+* **Enrique Santos Fraire** - *A01705746*
 
 _Profesor_
 * **Benjamín Valdés Aguirre**
-
-[Contribuyentes](https://github.com/A01705746/Herramientas_Computacionales_Equipo/contributors)
 
 ## Reflexión 🎁
 
