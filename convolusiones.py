@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
     # Para obtener la imágen se corre el programa con la siguiente línea de comando:
     # "python convolusiones.py -i Hatsune3.png"
-    # la imágen tiene que estar en la misma carpetaS
+    # la imágen tiene que estar en la misma carpeta
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--image", required=True, help="Path of image")
     args = vars(ap.parse_args())
